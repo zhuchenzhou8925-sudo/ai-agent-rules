@@ -1,0 +1,37 @@
+# macOS
+.DS_Store
+# temporary files
+*.tmp
+*.bak
+~$*
+# environment and secrets
+.env
+.env.*
+*.key
+*.pem
+secrets.json
+credentials.json
+id_rsa
+id_ed25519
+# local config
+local.config.md
+local.settings.json
+# private materials
+_private/
+客户资料/
+合同/
+报价/
+招采文件/
+原始资料/
+内部资料/
+未脱敏资料/
+# Obsidian local state
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+# output / cache
+_Codex_Output/
+.cache/
+dist/
+build/
+node_modules/
+__pycache__/
