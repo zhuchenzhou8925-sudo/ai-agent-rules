@@ -19,6 +19,14 @@ Use it for:
 
 This skill is a workflow template. It is not an Obsidian plugin, not a complete software product, and not a substitute for human review.
 
+## Runtime boundary
+
+This skill is written for AI assistants such as Codex, ChatGPT Projects, Claude Code, and similar agents to read as workflow instructions.
+
+It is not a directly runnable terminal program. Users should not run commands such as `run skill` in a terminal and expect this skill to execute by itself.
+
+Correct use: ask the AI assistant to read `SKILL.md`, then follow the workflow of read-only scan -> plan confirmation -> ingestion and/or document output.
+
 ## Core rule
 
 Start with the user's goal, then choose the workflow:
@@ -43,6 +51,26 @@ When local files are involved, always begin with read-only scanning. Do not move
 - Do not invent facts that are not supported by source files.
 - Mark uncertain, outdated, or unverified information clearly.
 - Keep source references so the user can trace each note back to the original material.
+
+## Public synchronization boundary
+
+Never sync, commit, publish, or write the following content into a public repository:
+
+- private Obsidian vault full content;
+- formal project materials;
+- customer materials;
+- contracts;
+- quotations;
+- bidding or procurement materials;
+- run logs;
+- `ERROR_LOG.md`;
+- `_Codex_Output`;
+- API keys;
+- tokens;
+- SSH private keys;
+- local absolute paths;
+- personal usernames;
+- other unauthorized or sensitive materials.
 
 ## First-pass workflow
 
@@ -94,6 +122,8 @@ For real user work, adapt the templates to the user's vault naming, tags, and fo
 
 The assistant should not generate images, AI artwork, visual renders, cover images, architecture diagrams, or flowchart images directly.
 
+For Word, PPT, Markdown, report, and solution outputs, do not stop document output because an image cannot be generated. Continue the text content, structure, layout notes, placeholders, and prompts.
+
 For Word, PPT, Markdown, report, and solution outputs, only provide:
 
 - image or diagram placeholders;
@@ -103,6 +133,8 @@ For Word, PPT, Markdown, report, and solution outputs, only provide:
 - recommended layout;
 - style requirements;
 - AI image prompt for another image tool.
+
+Actual image creation should be done by external image tools such as ChatGPT Image, image2, Midjourney, Jimeng, Tongyi Wanxiang, or similar tools.
 
 Use `templates/image-placeholder-template.md` for any architecture diagram, flowchart, cover visual, scene image, infographic, icon group, dashboard mockup, or prototype image.
 
