@@ -48,11 +48,26 @@ AI 智能体规则与提示词仓库。
 | `agents/ppt-report-agent/` | PPT 与汇报材料智能体规则 |
 | `agents/bidding-agent/` | 招采、报价、任务书相关规则 |
 | `agents/project-management-agent/` | 项目管理与需求分析规则 |
+| `skills/` | 可复制到 AI 助手或项目环境中的轻量级 Skill |
 | `docs/quick-start.md` | 最小使用流程 |
 | `docs/setup-guide.md` | 本地接入和同步指南 |
 | `docs/example-vault-structure.md` | 推荐 Obsidian 知识库目录结构 |
 | `examples/` | 脱敏输入输出样例占位 |
 | `changelog.md` | 仓库变更记录 |
+
+## 可用 Skill
+
+- [Obsidian 项目型知识库整理 Skill](skills/obsidian-project-knowledge-skill/SKILL.md)：用于让 AI 助手、Codex、ChatGPT Project 或类似智能体读取工作流说明，把项目文件、方案材料、商务资料、行业内容和汇报材料整理成可维护的 Obsidian 知识库。
+
+配套示例与模板：
+
+- [输入目录扫描示例](skills/obsidian-project-knowledge-skill/examples/input-folder-example.md)
+- [入库输出示例](skills/obsidian-project-knowledge-skill/examples/archive-output-example.md)
+- [文档输出占位示例](skills/obsidian-project-knowledge-skill/examples/document-output-example.md)
+- [知识卡片模板](skills/obsidian-project-knowledge-skill/templates/knowledge-card-template.md)
+- [项目笔记模板](skills/obsidian-project-knowledge-skill/templates/project-note-template.md)
+- [MOC 模板](skills/obsidian-project-knowledge-skill/templates/moc-template.md)
+- [图片 / 图形占位符模板](skills/obsidian-project-knowledge-skill/templates/image-placeholder-template.md)
 
 ## 快速开始
 
