@@ -49,6 +49,7 @@ AI 智能体规则与提示词仓库。
 | `agents/bidding-agent/` | 招采、报价、任务书相关规则 |
 | `agents/project-management-agent/` | 项目管理与需求分析规则 |
 | `skills/` | 可复制到 AI 助手或项目环境中的轻量级 Skill |
+| `docs/first-use-guide.md` | 第一次使用指南 |
 | `docs/quick-start.md` | 最小使用流程 |
 | `docs/setup-guide.md` | 本地接入和同步指南 |
 | `docs/example-vault-structure.md` | 推荐 Obsidian 知识库目录结构 |
@@ -73,9 +74,10 @@ AI 智能体规则与提示词仓库。
 
 建议先阅读：
 
-1. [快速开始](docs/quick-start.md)
-2. [本地接入指南](docs/setup-guide.md)
-3. [推荐 Obsidian 知识库结构](docs/example-vault-structure.md)
+1. [第一次使用指南](docs/first-use-guide.md)
+2. [快速开始](docs/quick-start.md)
+3. [本地接入指南](docs/setup-guide.md)
+4. [推荐 Obsidian 知识库结构](docs/example-vault-structure.md)
 
 最小流程：
 
