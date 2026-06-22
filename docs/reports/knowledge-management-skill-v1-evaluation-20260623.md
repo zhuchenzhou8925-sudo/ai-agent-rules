@@ -121,4 +121,8 @@ No formal KnowledgeBase rollback is required because this run does not write to 
 
 ## GitHub Sync Result
 
-Pending push at the time this report is first committed. The final branch and commit details will be confirmed after GitHub push.
+- Branch: `draft/2026-06-23-knowledge-management-skill-v1`
+- First pushed commit: `3df8c0f`
+- Remote: `origin`
+- PR creation URL: `https://github.com/zhuchenzhou8925-sudo/ai-agent-rules/pull/new/draft/2026-06-23-knowledge-management-skill-v1`
+- Main branch merge: not performed.
