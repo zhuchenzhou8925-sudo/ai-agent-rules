@@ -46,6 +46,8 @@ For public rule repositories, prefer placeholders such as `<WORKSPACE_ROOT>` and
 - Do not modify legacy rules while creating or testing this skill.
 - Do not write to the formal knowledge base during skill tests, including any `_Codex_Output` folder inside the formal vault.
 - Do not sync private vault content, customer materials, contracts, quotations, bidding files, run logs, secrets, tokens, keys, or unredacted business materials to GitHub.
+- Stop on blockers such as missing paths, unclear write scope, permission errors, suspected sensitive content, duplicate conflicts, or formal-ingestion requests without user confirmation. Report the blocker instead of bypassing it.
+- Record validation limits honestly. If a dependency, parser, validator, or permission is unavailable, state the limitation and use a safer fallback rather than pretending the official validation passed.
 - Mark uncertain, outdated, or unverified facts clearly.
 - Preserve source traceability with `source` or `source_path` fields when creating knowledge artifacts.
 
@@ -156,4 +158,16 @@ Before presenting a result as ready:
 - Source references were preserved.
 - Private or sensitive details were removed, parameterized, or explicitly approved.
 - Drafts, logs, validation records, and temporary outputs were kept out of the formal knowledge base.
+- Sensitive information checks were performed before any GitHub-oriented handoff.
+- Any blocker, missing dependency, or validation limitation was reported clearly.
 - The result states whether it is a draft, validation record, migration suggestion, or formal knowledge artifact.
+
+## Validation References
+
+When testing or changing this skill inside the rules repository, use the repository validation materials as the audit trail:
+
+- `docs/knowledge-management/legacy-capability-coverage-matrix-20260623.md`
+- `docs/knowledge-management/workspace-directory-responsibility-map-20260623.md`
+- `docs/reports/knowledge-management-skill-v1-evaluation-20260623.md`
+
+Use these files to confirm legacy capability coverage, workspace write boundaries, and whether the current version is ready for PR review. Test reports belong in the rules repository test or report directories, not in the formal knowledge base.
