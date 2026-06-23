@@ -58,10 +58,13 @@ AI 智能体规则与提示词仓库。
 
 ## 可用 Skill
 
+- [Knowledge Management Skill v1](skills/knowledge-management/SKILL.md)：用于从工作区级视角进行只读目录分析、资料分类、Obsidian / Markdown 知识化规划、资料索引、项目笔记、MOC、知识卡片、双链、标签和迁移建议。v1 测试输出不进入正式 KnowledgeBase。
 - [Obsidian 项目型知识库整理 Skill](skills/obsidian-project-knowledge-skill/SKILL.md)：用于让 AI 助手、Codex、ChatGPT Project 或类似智能体读取工作流说明，把项目文件、方案材料、商务资料、行业内容和汇报材料整理成可维护的 Obsidian 知识库。
 
 配套示例与模板：
 
+- [工作区目录职责图模板](skills/knowledge-management/templates/workspace-directory-map-template.md)
+- [旧版能力覆盖矩阵模板](skills/knowledge-management/templates/legacy-coverage-matrix-template.md)
 - [输入目录扫描示例](skills/obsidian-project-knowledge-skill/examples/input-folder-example.md)
 - [入库输出示例](skills/obsidian-project-knowledge-skill/examples/archive-output-example.md)
 - [文档输出占位示例](skills/obsidian-project-knowledge-skill/examples/document-output-example.md)
@@ -100,10 +103,12 @@ AI 智能体规则与提示词仓库。
 ## 安全边界
 
 - 第一次处理资料必须只读扫描。
+- 工作区级分析先只扫描一级和二级目录，除非任务需要并经说明后再进入更深层材料。
 - 不直接移动、删除、重命名原始文件。
 - 不把整个工作区初始化为 Git 仓库。
 - 不同步正式知识库、运行日志、输出目录、密钥或私有项目资料。
 - 不把未脱敏客户资料、合同、报价、招采文件提交到 GitHub。
+- Skill 开发和验证材料应留在规则仓库或用户指定的测试输出区，不写入正式 KnowledgeBase 或 KnowledgeBase 内的 `_Codex_Output`。
 - 图片类内容不由 Codex 生成；Codex 只保留图片 / 图形占位符、说明和 AI 图片生成提示词。
 - 正式入库、对外发布、业务口径、敏感案例和具体承诺必须人工确认。
 

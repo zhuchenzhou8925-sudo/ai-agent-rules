@@ -4,6 +4,16 @@
 
 ## 最小使用流程
 
+### 工作区级入口：Knowledge Management Skill v1
+
+当任务从整个工作区、多个资料目录或知识库治理视角开始时，优先使用：
+
+- `skills/knowledge-management/SKILL.md`
+
+该入口先做工作区级只读分析，再决定是否进入 Obsidian / Markdown 知识化流程。v1 仅支持资料索引、项目笔记 / 资料笔记、MOC、知识卡片、双链、标签、迁移建议和上层 MOC 挂接建议。
+
+测试或验证新版 Skill 时，输出材料应放在规则仓库的测试或报告目录，不写入正式 KnowledgeBase，也不写入 KnowledgeBase 内的 `_Codex_Output`。
+
 ### 第一步：准备 Obsidian 知识库
 
 先准备一个本地 Obsidian 知识库，建议至少包含项目资料、产品能力、行业场景、商务资料、汇报材料、可复用知识、MOC 和资料索引等区域。
@@ -23,6 +33,7 @@
 
 从本仓库复制需要的规则模板。常用入口包括：
 
+- `skills/knowledge-management/SKILL.md`
 - `core/codex-workspace-rules.md`
 - `agents/obsidian-knowledge-agent/rules/obsidian-write-rules.md`
 - `agents/obsidian-knowledge-agent/rules/obsidian-smart-archive-entry-rules.md`
@@ -36,6 +47,11 @@
 把模板中的占位路径替换为你的本地目录，例如：
 
 - `<WORKSPACE_ROOT>`：工作台根目录。
+- `<WORKBENCH_ROOT>`：工作台或日常控制区。
+- `<RULES_REPO>`：规则源码仓库。
+- `<LEGACY_RULES_DIR>`：旧版规则目录，只读参照。
+- `<KNOWLEDGE_BASE>`：正式 Obsidian / Markdown 知识库。
+- `<SOURCE_ARCHIVE>`：原始资料和最终原始成果归档区。
 - `<CODEX_CONTROL_DIR>`：智能体控制规则目录。
 - `<CODEX_OUTPUT_DIR>`：草稿和中间成果目录。
 - `<OBSIDIAN_AGENT_RULES_DIR>`：Obsidian 知识库规则目录。
@@ -53,6 +69,7 @@
 
 第一次使用必须只读扫描。扫描目标是：
 
+- 对工作区级任务，先扫描一级和二级目录，建立目录职责图。
 - 判断路径是否存在、可读、在授权范围内。
 - 建立文件清单。
 - 判断文件类型、数量、版本和重复关系。

@@ -127,6 +127,30 @@ AI 图片生成提示词：
 - 不提交命令输出中的敏感路径。
 - 只在脱敏规则中保留 `<ERROR_LOG_TEMPLATE>` 等占位说明。
 
+## Knowledge Management Skill v1 接入边界
+
+`skills/knowledge-management/SKILL.md` 是工作区级知识管理入口，用于在进入具体 Obsidian / Markdown 知识化动作前，先判断工作区结构、资料来源、输出边界和安全风险。
+
+推荐路径变量：
+
+| 变量 | 含义 |
+|---|---|
+| `<WORKSPACE_ROOT>` | 用户授权的工作区分析起点 |
+| `<WORKBENCH_ROOT>` | 日常工作台、控制区和输出区 |
+| `<RULES_REPO>` | 规则源码仓库 |
+| `<LEGACY_RULES_DIR>` | 旧版稳定规则，只读参照 |
+| `<KNOWLEDGE_BASE>` | 正式 Obsidian / Markdown 知识库 |
+| `<SOURCE_ARCHIVE>` | 原始资料和最终原始成果归档区 |
+| `<CODEX_OUTPUT_DIR>` | 草稿、中间成果或用户批准的临时输出区 |
+
+接入原则：
+
+1. 工作区级任务先只读扫描一级和二级目录。
+2. 新版 Skill 开发、测试、覆盖矩阵、验证记录和评价报告应写入规则仓库或用户指定的测试区。
+3. Skill 测试阶段不得写入正式 `<KNOWLEDGE_BASE>`，也不得写入其中的 `_Codex_Output`。
+4. 正式知识成果入库必须由用户确认，且仍沿用资料索引、项目笔记 / 资料笔记、MOC、知识卡片、双链和标签体系。
+5. 旧版规则目录保持可回退，不在新版验证过程中修改。
+
 ## GitHub 分支、PR 和回滚
 
 推荐所有规则修改都走以下流程：
