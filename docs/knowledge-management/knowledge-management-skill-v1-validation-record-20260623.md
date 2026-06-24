@@ -3,10 +3,10 @@
 ## Validation Scope
 
 - Skill under validation: `skills/knowledge-management/SKILL.md`
-- Rules repository: `/Users/zoezhu/工作区/GitHub/ai-agent-rules`
-- Workspace analysis root: `/Users/zoezhu/工作区`
-- Legacy reference: `/Users/zoezhu/工作区/00_工作台/Skills/Obsidian知识库`
-- Formal KnowledgeBase: `/Users/zoezhu/工作区/00_工作台/KnowledgeBase`
+- Rules repository: `<RULES_REPO>`
+- Workspace analysis root: `<WORKSPACE_ROOT>`
+- Legacy reference: `<LEGACY_RULES_DIR>`
+- Formal KnowledgeBase: `<KNOWLEDGE_BASE_DIR>`
 
 ## Validation Items
 
@@ -15,12 +15,12 @@
 | Workspace shallow scan | `find <WORKSPACE_ROOT> -maxdepth 2 -type d` | Completed; documented in directory responsibility map. |
 | Legacy rule protection baseline | SHA-256 hash of legacy rule files before edits | Baseline captured before repository edits. |
 | Legacy rule protection final check | SHA-256 hash of legacy rule files after edits | Passed; hashes match baseline. |
-| KnowledgeBase write boundary | `find /Users/zoezhu/工作区/00_工作台/KnowledgeBase -type f -mmin -120` | Passed; no recently modified files returned. |
-| KnowledgeBase `_Codex_Output` boundary | `find /Users/zoezhu/工作区/00_工作台/KnowledgeBase/_Codex_Output -type f -mmin -120` | Passed; no recently modified files returned. |
+| KnowledgeBase write boundary | `find <KNOWLEDGE_BASE_DIR> -type f -mmin -120` | Passed; no recently modified files returned. |
+| KnowledgeBase `_Codex_Output` boundary | `find <KNOWLEDGE_BASE_DIR>/_Codex_Output -type f -mmin -120` | Passed; no recently modified files returned. |
 | Skill format | Required frontmatter with `name` and `description` | Passed by local `awk` validation. |
 | Legacy capability coverage | Matrix review against legacy rule names and v1 skill sections | Passed. |
 | Test output location | All validation documents written into `GitHub/ai-agent-rules/docs` | Passed. |
-| Formal KnowledgeBase output exclusion | No validation output written to `KnowledgeBase` or `KnowledgeBase/_Codex_Output` | Passed. |
+| Formal KnowledgeBase output exclusion | No validation output written to `<KNOWLEDGE_BASE_DIR>` or `<KNOWLEDGE_BASE_DIR>/_Codex_Output` | Passed. |
 | Sensitive information scan | `rg` over changed and untracked repository files | Passed with expected explanatory hits only. |
 | Git scope | `git status` before commit | Passed; changes are limited to `GitHub/ai-agent-rules`. |
 

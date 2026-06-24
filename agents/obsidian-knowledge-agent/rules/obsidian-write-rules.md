@@ -67,10 +67,12 @@ Obsidian 知识库：
 
 - 新建 Obsidian 成果必须为 `.md`。
 - 默认只向 `<CODEX_OUTPUT_DIR>` 写入新 Markdown 草稿。
+- `<KNOWLEDGE_BASE_DIR>/_Codex_Output` 仅作为历史兼容区，不作为默认输出区。
 - 不得覆盖已有 Markdown 文件。
 - 不得删除、重命名、覆盖正式知识库文件。
 - 不得修改原始资料。
 - 不得写临时脚本。
+- 自动化处理优先使用已有工具、一次性命令或内联命令；只有重复、稳定且经用户授权保留的场景才创建固定脚本。
 - 如目标文件已存在，必须停止并报告 blocker，不得自动改名规避冲突。
 
 KnowledgeBase 只保留用户确认后的正式知识成果。验证产物、过程台账、临时报告、内部待确认事项、图表清单、外部资料准备清单、运行日志和中间输出不得写入 KnowledgeBase；默认写入 `<CODEX_OUTPUT_DIR>` 或 `<CODEX_CONTROL_DIR>/<RUN_LOG_DIR>`。

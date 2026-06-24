@@ -33,11 +33,12 @@ Use these logical locations:
 | `<WORKBENCH_ROOT>` | Workbench area for control rules, temporary outputs, and the active knowledge base. |
 | `<RULES_REPO>` | Git-managed source repository for reusable rules and skills. |
 | `<LEGACY_RULES_DIR>` | Existing stable legacy rules. Read-only reference only. |
-| `<KNOWLEDGE_BASE>` | Formal Obsidian or Markdown knowledge base. Do not write during tests. |
+| `<KNOWLEDGE_BASE_DIR>` | Formal Obsidian or Markdown knowledge base. Do not write during tests. |
 | `<CODEX_OUTPUT_DIR>` | Temporary draft and validation output area when the user allows workspace writes. |
+| `<AI_OUTPUT_DIR>` | Temporary deliverable handoff area, not a long-term archive. |
 | `<SOURCE_ARCHIVE>` | Source material and finalized original deliverable archive. |
 
-For public rule repositories, prefer placeholders such as `<WORKSPACE_ROOT>` and `<KNOWLEDGE_BASE>`. Local absolute paths may appear only in local validation reports when needed to prove what was tested.
+For public rule repositories, use placeholders such as `<WORKSPACE_ROOT>`, `<CODEX_CONTROL_DIR>`, `<CODEX_OUTPUT_DIR>`, `<KNOWLEDGE_BASE_DIR>`, `<AI_OUTPUT_DIR>`, and `<SKILL_DIR>`. Do not write real local absolute paths to GitHub-oriented files.
 
 ## Core Safety Rules
 
@@ -47,6 +48,10 @@ For public rule repositories, prefer placeholders such as `<WORKSPACE_ROOT>` and
 - Do not write to the formal knowledge base during skill tests, including any `_Codex_Output` folder inside the formal vault.
 - Do not sync private vault content, customer materials, contracts, quotations, bidding files, run logs, secrets, tokens, keys, or unredacted business materials to GitHub.
 - Stop on blockers such as missing paths, unclear write scope, permission errors, suspected sensitive content, duplicate conflicts, or formal-ingestion requests without user confirmation. Report the blocker instead of bypassing it.
+- Low-risk tasks may continue inside an explicit user-approved scope; high-risk tasks and blockers must pause.
+- Use `<CODEX_OUTPUT_DIR>` as the default draft and validation area. `<KNOWLEDGE_BASE_DIR>/_Codex_Output` is historical compatibility only, not the default output area.
+- Prefer existing tools, one-off commands, or inline commands for deterministic handling. Create persistent scripts only when the task is repeated, stable, and explicitly authorized; do not leave scattered temporary scripts.
+- Commit, push, PR creation, merge, and force push are outside this skill's automatic scope. Commit, push, PR, and merge require separate confirmation; force push is prohibited.
 - Record validation limits honestly. If a dependency, parser, validator, or permission is unavailable, state the limitation and use a safer fallback rather than pretending the official validation passed.
 - Mark uncertain, outdated, or unverified facts clearly.
 - Preserve source traceability with `source` or `source_path` fields when creating knowledge artifacts.
@@ -61,7 +66,7 @@ First identify the user's actual goal, then choose one route:
 4. **Document generation support**: prepare Markdown, Word, PPT, report, or proposal structures from validated materials.
 5. **Business analysis support**: analyze contracts, quotations, bidding materials, and commercial boundaries after authorization.
 6. **Local knowledge-base governance**: review structure, missing links, duplicate topics, and MOC coverage.
-7. **Automation support**: create scripts only when repetitive scanning, conversion, table generation, or validation needs deterministic handling.
+7. **Automation support**: use existing tools, one-off commands, or inline commands first; create persistent scripts only when repetitive scanning, conversion, table generation, or validation needs deterministic handling and the user authorizes a durable script.
 
 ## First-Pass Workflow
 

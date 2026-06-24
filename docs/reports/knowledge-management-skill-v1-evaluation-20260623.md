@@ -6,18 +6,18 @@ Evaluation result: `knowledge-management` v1 is suitable as a safer workspace-le
 
 ## Workspace Structure Analysis
 
-- Analysis root: `/Users/zoezhu/工作区`
+- Analysis root: `<WORKSPACE_ROOT>`
 - Scan depth: first-level and second-level directories only
 - Deep workspace full-text scan: not performed
 - Directory responsibility map: `docs/knowledge-management/workspace-directory-responsibility-map-20260623.md`
 
 Key result:
 
-- `00_工作台` remains the workbench and active knowledge environment.
-- `02_知识与方案` remains the source archive and finalized original deliverable archive.
-- `GitHub/ai-agent-rules` is the only write target for this skill development run.
-- `00_工作台/Skills/Obsidian知识库` remains the legacy rollback reference.
-- `00_工作台/KnowledgeBase` remains formal knowledge storage and was excluded from test output.
+- `<WORKBENCH_ROOT>` remains the workbench and active knowledge environment.
+- `<SOURCE_ARCHIVE>` remains the source archive and finalized original deliverable archive.
+- `<RULES_REPO>` is the only write target for this skill development run.
+- `<LEGACY_RULES_DIR>` remains the legacy rollback reference.
+- `<KNOWLEDGE_BASE_DIR>` remains formal knowledge storage and was excluded from test output.
 
 ## Legacy Coverage
 
@@ -45,16 +45,16 @@ Covered capabilities:
 All test and evaluation materials for this run are stored in the rules repository:
 
 ```text
-GitHub/ai-agent-rules/docs/knowledge-management
-GitHub/ai-agent-rules/docs/reports
-GitHub/ai-agent-rules/skills/knowledge-management
+<RULES_REPO>/docs/knowledge-management
+<RULES_REPO>/docs/reports
+<RULES_REPO>/skills/knowledge-management
 ```
 
 This run does not write test outputs to:
 
 ```text
-00_工作台/KnowledgeBase
-00_工作台/KnowledgeBase/_Codex_Output
+<KNOWLEDGE_BASE_DIR>
+<KNOWLEDGE_BASE_DIR>/_Codex_Output
 ```
 
 ## Safety Boundary Check
@@ -63,8 +63,8 @@ Completed checks:
 
 - Legacy rule hashes were captured before and after edits and remained unchanged.
 - No files were written under formal KnowledgeBase during the validation window.
-- No files were written under `KnowledgeBase/_Codex_Output` during the validation window.
-- Git changes are limited to `GitHub/ai-agent-rules`.
+- No files were written under `<KNOWLEDGE_BASE_DIR>/_Codex_Output` during the validation window.
+- Git changes are limited to `<RULES_REPO>`.
 - Changed repository content was scanned for local paths, secrets, tokens, private keys, customer materials, contracts, quotations, bidding files, run logs, and unverified outputs.
 
 ## Sensitive Information Scan
@@ -73,8 +73,8 @@ Final scan status: passed with expected explanatory hits only.
 
 Interpretation:
 
-- Local absolute paths in validation and evaluation reports are allowed as local test evidence.
-- Reusable rule and skill body should prefer placeholders such as `<WORKSPACE_ROOT>`, `<KNOWLEDGE_BASE>`, and `<RULES_REPO>`.
+- Public validation and evaluation reports should use placeholders instead of local absolute paths.
+- Reusable rule and skill body should prefer placeholders such as `<WORKSPACE_ROOT>`, `<KNOWLEDGE_BASE_DIR>`, and `<RULES_REPO>`.
 - Security words such as Token, key, contract, quotation, and bidding are acceptable when they appear in prohibition lists rather than as actual sensitive content.
 - No actual secret, token value, private key, customer material body, contract body, quotation body, bidding file, run log, or unverified output was found in the changed files.
 
@@ -103,8 +103,8 @@ Recommendation: use `knowledge-management` v1 as the new default planning and sc
 Rollback is simple because this run is旁路式改造:
 
 1. Stop using `skills/knowledge-management/SKILL.md`.
-2. Continue using the legacy rules in `00_工作台/Skills/Obsidian知识库`.
-3. Revert or ignore the draft branch changes in `GitHub/ai-agent-rules`.
+2. Continue using the legacy rules in `<LEGACY_RULES_DIR>`.
+3. Revert or ignore the draft branch changes in `<RULES_REPO>`.
 
 No formal KnowledgeBase rollback is required because this run does not write to the KnowledgeBase.
 
@@ -115,7 +115,7 @@ No formal KnowledgeBase rollback is required because this run does not write to 
 - Skill structural validation: passed.
 - Legacy rule unchanged check: passed.
 - Formal KnowledgeBase no-write check: passed.
-- `KnowledgeBase/_Codex_Output` no-write check: passed.
+- `<KNOWLEDGE_BASE_DIR>/_Codex_Output` no-write check: passed.
 - Sensitive information scan: passed with expected explanatory hits only.
 - Git scope check: passed.
 

@@ -10,7 +10,8 @@
 workspace/
 ├── Codex_Control/
 ├── KnowledgeBase/
-├── _Codex_Output/
+├── Codex_Output/
+├── AI_Output/
 ├── source-materials/
 └── GitHub/
     └── ai-agent-rules/
@@ -20,7 +21,8 @@ workspace/
 
 - `Codex_Control/` 存放本地执行规则、错误日志和运行记录。
 - `KnowledgeBase/` 存放正式 Obsidian 知识库成果。
-- `_Codex_Output/` 存放草稿、中间成果和待确认内容。
+- `Codex_Output/` 存放草稿、中间成果、验证产物和待确认内容。
+- `AI_Output/` 存放临时交付或中转成果，不作为长期归档目录。
 - `source-materials/` 存放待整理或已授权读取的资料。
 - `GitHub/ai-agent-rules/` 只存放规则模板和脱敏副本。
 
@@ -35,6 +37,8 @@ workspace/
 | `<WORKSPACE_ROOT>` | 本地工作台根目录 |
 | `<CODEX_CONTROL_DIR>` | Codex 控制规则目录 |
 | `<CODEX_OUTPUT_DIR>` | 草稿和中间成果目录 |
+| `<AI_OUTPUT_DIR>` | 临时交付或中转成果目录 |
+| `<KNOWLEDGE_BASE_DIR>` | 正式 Obsidian / Markdown 知识库目录 |
 | `<OBSIDIAN_AGENT_RULES_DIR>` | Obsidian 知识库规则目录 |
 | `<RUN_LOG_DIR>` | 运行日志目录 |
 | `<GOVERNANCE_ARCHIVE_DIR>` | 治理备份目录 |
@@ -77,11 +81,14 @@ workspace/
 4. 只修改映射目标文件。
 5. 检查 diff 是否只包含预期文件。
 6. 检查是否含有本地绝对路径、用户名、日志、输出目录、密钥或私有资料。
-7. commit 并 push draft 分支。
-8. 创建 PR。
-9. 人工确认后再合并 `main`。
+7. 输出 commit 前确认报告，等待用户确认后再 commit。
+8. 输出 push 前确认报告，等待用户确认后再 push draft 分支。
+9. 输出 PR 前确认报告，等待用户确认后再创建 PR。
+10. 人工确认后再合并 `main`，Codex 不得自行合并。
 
 GitHub 只保存规则模板和脱敏副本，不同步正式知识库、运行日志、输出目录、密钥或私有项目资料。
+
+禁止 force push。任何 commit、push、PR、merge 都必须在对应确认节点另行确认。
 
 ## 如何处理图片 / 图形占位符
 
@@ -139,17 +146,19 @@ AI 图片生成提示词：
 | `<WORKBENCH_ROOT>` | 日常工作台、控制区和输出区 |
 | `<RULES_REPO>` | 规则源码仓库 |
 | `<LEGACY_RULES_DIR>` | 旧版稳定规则，只读参照 |
-| `<KNOWLEDGE_BASE>` | 正式 Obsidian / Markdown 知识库 |
+| `<KNOWLEDGE_BASE_DIR>` | 正式 Obsidian / Markdown 知识库目录 |
 | `<SOURCE_ARCHIVE>` | 原始资料和最终原始成果归档区 |
 | `<CODEX_OUTPUT_DIR>` | 草稿、中间成果或用户批准的临时输出区 |
+| `<AI_OUTPUT_DIR>` | 临时交付或中转成果区 |
 
 接入原则：
 
 1. 工作区级任务先只读扫描一级和二级目录。
 2. 新版 Skill 开发、测试、覆盖矩阵、验证记录和评价报告应写入规则仓库或用户指定的测试区。
-3. Skill 测试阶段不得写入正式 `<KNOWLEDGE_BASE>`，也不得写入其中的 `_Codex_Output`。
+3. Skill 测试阶段不得写入正式 `<KNOWLEDGE_BASE_DIR>`，也不得写入其中的 `_Codex_Output`。
 4. 正式知识成果入库必须由用户确认，且仍沿用资料索引、项目笔记 / 资料笔记、MOC、知识卡片、双链和标签体系。
 5. 旧版规则目录保持可回退，不在新版验证过程中修改。
+6. 默认草稿和验证输出使用 `<CODEX_OUTPUT_DIR>`；`<KNOWLEDGE_BASE_DIR>/_Codex_Output` 仅作为历史兼容区，不作为默认输出区。
 
 ## GitHub 分支、PR 和回滚
 
@@ -159,12 +168,12 @@ AI 图片生成提示词：
 2. 修改规则模板或说明文档。
 3. 检查 diff 范围。
 4. 检查敏感内容。
-5. commit。
-6. push draft 分支。
-7. 创建 PR。
+5. 用户确认后 commit。
+6. 用户确认后 push draft 分支。
+7. 用户确认后创建 PR。
 8. 人工确认后再合并 `main`。
 
-不建议直接提交到 `main`。不得 force push 到共享分支。
+不建议直接提交到 `main`。Codex 不得自行 merge，不得 force push。
 
 回滚方式：
 
