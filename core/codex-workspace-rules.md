@@ -15,7 +15,7 @@
 主工作区：
 
 ```text
-<USER_HOME>/工作区/00_工作台
+<WORKSPACE_ROOT>
 ```
 
 Codex 控制区：
@@ -27,7 +27,7 @@ Codex 控制区：
 Obsidian 知识库根目录：
 
 ```text
-<WORKSPACE_ROOT>/KnowledgeBase
+<KNOWLEDGE_BASE_DIR>
 ```
 
 Codex 默认写入缓冲区：
@@ -57,6 +57,9 @@ KnowledgeBase 治理归档目录：
 - 遇到路径不存在、权限不足、命令失败、文件已存在、文件冲突、范围不明确时，必须停止并报告。
 - 不得自行扩大读取、写入、修改范围。
 - 未经用户确认，不得直接修改正式知识库目录中的既有内容。
+- 用户已明确授权且风险较低的连续操作，可以在授权范围内连续完成；涉及高风险动作、敏感内容、权限问题或 blocker 时必须立即暂停。
+- GitHub 同步只允许上传脱敏规则、模板、说明和占位示例，不得上传真实本地绝对路径、真实日志、客户或项目资料、合同、报价、招采资料、Token、密钥或私钥。
+- `commit`、`push`、创建 PR、`merge` 必须另行获得用户确认；Codex 不得自行 `merge`，不得执行 `force push`。
 
 ## 3. 任务目标驱动与能力自补齐原则
 
@@ -156,7 +159,7 @@ AI 图片生成提示词：
 
 ### 3.5 代码和自动化处理规则
 
-当任务涉及批量处理、数据统计、格式转换、图形占位说明、文件扫描、表格清洗或重复操作时，应主动编写脚本或调用工具完成，包括但不限于：
+当任务涉及批量处理、数据统计、格式转换、图形占位说明、文件扫描、表格清洗或重复操作时，应优先使用已有工具、一次性命令或内联命令完成。只有在任务重复、规则稳定、输入输出明确且用户授权保留时，才创建长期固定脚本；禁止落盘散乱临时脚本。可处理的场景包括但不限于：
 
 - 扫描目录；
 - 生成文件清单；
@@ -230,7 +233,8 @@ AI 图片生成提示词：
 - 运行日志、治理记录、错误记录、过程审计默认写入 `<CODEX_CONTROL_DIR>/<RUN_LOG_DIR>`。
 - 治理备份默认写入 `<CODEX_CONTROL_DIR>/<GOVERNANCE_ARCHIVE_DIR>`。
 - `outputs` 定位为历史程序输出区，原则上不再新增；验证任务、报告增强任务、资料补齐任务、外部检索任务、图形化表达需求判断任务和未确认业务输出默认进入 `<CODEX_OUTPUT_DIR>`。
-- `AI输出成果` 仅在用户明确指定 AI 成果暂存任务时允许写入。
+- `<AI_OUTPUT_DIR>` 仅作为 AI 生成成果的临时交付或中转区，只有在用户明确指定 AI 成果暂存任务时允许写入。
+- `<KNOWLEDGE_BASE_DIR>/_Codex_Output` 仅作为历史兼容区，不作为默认输出区；新草稿、验证产物和待确认输出默认进入 `<CODEX_OUTPUT_DIR>`。
 - 其他正式目录默认只读。
 
 KnowledgeBase 只保留用户确认后的正式知识成果。验证产物、过程台账、临时报告、内部待确认事项、图表清单、外部资料准备清单、运行日志和中间输出不得写入 KnowledgeBase；默认写入 `<CODEX_OUTPUT_DIR>` 或 `<CODEX_CONTROL_DIR>/<RUN_LOG_DIR>`。
@@ -274,7 +278,7 @@ KnowledgeBase 禁止写入：
 - `DailyRecord`
 - `Scripts`
 - `outputs`
-- `AI输出成果`
+- `<AI_OUTPUT_DIR>`
 
 ## 6. 关键操作确认规则
 
@@ -288,7 +292,7 @@ KnowledgeBase 禁止写入：
 - 写入正式知识分类目录
 - 写入 `Codex_Control`
 - 写入 `outputs`
-- 写入 `AI输出成果`
+- 写入 `<AI_OUTPUT_DIR>`
 - 创建或修改脚本
 - 执行可能影响文件系统的命令
 
@@ -425,10 +429,10 @@ Obsidian 任务默认使用 **Obsidian 完整闭环低消耗模式**：成果标
 以后用户可以直接输入：
 
 ```text
-归档：<USER_HOME>/工作区/xxx/某文件.docx
-分析：<USER_HOME>/工作区/xxx/某资料目录
-整理：<USER_HOME>/工作区/xxx/某资料目录
-入库：<USER_HOME>/工作区/xxx/某资料目录
+归档：<WORKSPACE_ROOT>/xxx/某文件.docx
+分析：<WORKSPACE_ROOT>/xxx/某资料目录
+整理：<WORKSPACE_ROOT>/xxx/某资料目录
+入库：<WORKSPACE_ROOT>/xxx/某资料目录
 ```
 
 Codex 不得要求用户重复输入完整规则名称，应自动完成规则识别和读取。

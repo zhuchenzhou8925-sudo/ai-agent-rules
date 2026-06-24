@@ -7,7 +7,7 @@ This matrix checks whether `skills/knowledge-management/SKILL.md` preserves the 
 Legacy reference directory:
 
 ```text
-/Users/zoezhu/工作区/00_工作台/Skills/Obsidian知识库
+<LEGACY_RULES_DIR>
 ```
 
 The legacy directory is read-only for this validation.
