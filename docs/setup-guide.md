@@ -21,7 +21,7 @@ workspace/
 
 - `Codex_Control/` 存放本地执行规则、错误日志和运行记录。
 - `KnowledgeBase/` 存放正式 Obsidian 知识库成果。
-- `Codex_Output/` 存放草稿、中间成果、验证产物和待确认内容。
+- `Codex_Output/` 仅用于测试、预览、异常报告、过程检查、备份或用户明确要求的临时输出。
 - `AI_Output/` 存放临时交付或中转成果，不作为长期归档目录。
 - `source-materials/` 存放待整理或已授权读取的资料。
 - `GitHub/ai-agent-rules/` 只存放规则模板和脱敏副本。
@@ -36,7 +36,7 @@ workspace/
 |---|---|
 | `<WORKSPACE_ROOT>` | 本地工作台根目录 |
 | `<CODEX_CONTROL_DIR>` | Codex 控制规则目录 |
-| `<CODEX_OUTPUT_DIR>` | 草稿和中间成果目录 |
+| `<CODEX_OUTPUT_DIR>` | 测试、预览、异常报告、过程检查、备份或用户明确要求的临时输出目录 |
 | `<AI_OUTPUT_DIR>` | 临时交付或中转成果目录 |
 | `<KNOWLEDGE_BASE_DIR>` | 正式 Obsidian / Markdown 知识库目录 |
 | `<OBSIDIAN_AGENT_RULES_DIR>` | Obsidian 知识库规则目录 |
@@ -148,7 +148,7 @@ AI 图片生成提示词：
 | `<LEGACY_RULES_DIR>` | 旧版稳定规则，只读参照 |
 | `<KNOWLEDGE_BASE_DIR>` | 正式 Obsidian / Markdown 知识库目录 |
 | `<SOURCE_ARCHIVE>` | 原始资料和最终原始成果归档区 |
-| `<CODEX_OUTPUT_DIR>` | 草稿、中间成果或用户批准的临时输出区 |
+| `<CODEX_OUTPUT_DIR>` | 测试、预览、异常报告、过程检查、备份或用户明确要求的临时输出区 |
 | `<AI_OUTPUT_DIR>` | 临时交付或中转成果区 |
 
 接入原则：
@@ -156,9 +156,10 @@ AI 图片生成提示词：
 1. 工作区级任务先只读扫描一级和二级目录。
 2. 新版 Skill 开发、测试、覆盖矩阵、验证记录和评价报告应写入规则仓库或用户指定的测试区。
 3. Skill 测试阶段不得写入正式 `<KNOWLEDGE_BASE_DIR>`，也不得写入其中的 `_Codex_Output`。
-4. 正式知识成果入库必须由用户确认，且仍沿用资料索引、项目笔记 / 资料笔记、MOC、知识卡片、双链和标签体系。
-5. 旧版规则目录保持可回退，不在新版验证过程中修改。
-6. 默认草稿和验证输出使用 `<CODEX_OUTPUT_DIR>`；`<KNOWLEDGE_BASE_DIR>/_Codex_Output` 仅作为历史兼容区，不作为默认输出区。
+4. 用户授权资料处理且目标目录明确时，正式知识成果默认按 formal knowledge filing 进入对应 `<KNOWLEDGE_BASE_DIR>` 正式目录。
+5. 正式知识成果应使用资料类型识别、资料索引、多类型主题笔记、MOC、分型知识卡片、双链、标签、合并去重、版本判断和统一质检体系。
+6. 旧版规则目录保持可回退，不在新版验证过程中修改。
+7. `<CODEX_OUTPUT_DIR>` 仅用于测试、预览、异常报告、过程检查、备份或用户明确要求的临时输出；`<KNOWLEDGE_BASE_DIR>/_Codex_Output` 仅作为历史兼容区，不作为默认输出区。
 
 ## GitHub 分支、PR 和回滚
 

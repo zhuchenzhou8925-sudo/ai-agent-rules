@@ -2,7 +2,7 @@
 
 ## 2026-06-24
 - 同步脱敏版 runtime rules，明确低风险授权范围内可连续执行，高风险任务和 blocker 必须暂停。
-- 统一默认草稿区为 `<CODEX_OUTPUT_DIR>`，明确 `<KNOWLEDGE_BASE_DIR>/_Codex_Output` 仅作为历史兼容区。
+- 统一 `<CODEX_OUTPUT_DIR>` 的临时输出边界，明确其仅用于测试、预览、异常报告、过程检查、备份或用户明确要求的临时输出；`<KNOWLEDGE_BASE_DIR>/_Codex_Output` 仅作为历史兼容区。
 - 补齐 GitHub 同步边界：commit、push、PR、merge 必须另行确认，Codex 不得自行 merge，禁止 force push。
 - 收紧自动化处理口径：优先使用已有工具、一次性命令或内联命令，禁止落盘散乱临时脚本。
 - 补充 Knowledge Management Skill 脱敏副本、core 规则、Obsidian 规则、README、setup guide 和映射表的同步说明。

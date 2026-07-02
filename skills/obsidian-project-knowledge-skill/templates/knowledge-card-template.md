@@ -3,7 +3,7 @@
 ---
 title: {{title}}
 type: knowledge_card
-status: draft
+status: reviewed
 source:
 source_path:
 created:
@@ -13,28 +13,40 @@ tags:
 links:
   -
 review:
-  human_checked: false
+  content_checked:
+  source_traceable:
+  formal_ingested:
 ---
 
-## Definition
+## Core Conclusion
 
-Describe the concept, method, criterion, reusable expression, or pattern in one focused paragraph.
+State the reusable conclusion in one focused paragraph.
+
+## Card Type
+
+Judgment / method / model / scenario / requirement / risk / expression / comparison / extension.
 
 ## Context
 
 Explain where this knowledge comes from and why it matters.
 
-## Key Points
+## Judgment Logic or Method Framework
 
 - Point 1
 - Point 2
 - Point 3
 
-## Use Cases
+## Use Cases and Reuse Modes
 
 - Scenario 1
 - Scenario 2
 - Scenario 3
+
+## Evidence and Source
+
+- Source:
+- Evidence:
+- Reliability:
 
 ## Boundaries
 
@@ -50,8 +62,6 @@ Provide wording that can be reused in a proposal, report, PPT, or customer-facin
 - [[Related Project Note]]
 - [[Related Resource Index]]
 
-## Source
+## Update Conditions
 
-- Source file:
-- Source description:
-- Source reliability:
+- Update this card when source standards, project evidence, product capability, pricing logic, or reusable judgment changes.

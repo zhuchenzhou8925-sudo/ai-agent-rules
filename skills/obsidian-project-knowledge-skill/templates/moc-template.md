@@ -3,7 +3,7 @@
 ---
 title: {{topic}} MOC
 type: moc
-status: draft
+status: reviewed
 source:
 source_path:
 created:
@@ -13,7 +13,9 @@ tags:
 links:
   -
 review:
-  human_checked: false
+  content_checked:
+  source_traceable:
+  formal_ingested:
 ---
 
 ## 1. Topic Overview

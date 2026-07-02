@@ -19,7 +19,7 @@
 | Codex control | `<CODEX_CONTROL_DIR>` | Existing control rules, logs, governance references | Read-only in this run | Not modified. |
 | Formal knowledge base | `<KNOWLEDGE_BASE_DIR>` | Formal Obsidian / Markdown knowledge artifacts | Read-only in this run | No writes, including no writes to `_Codex_Output`. |
 | Legacy skills | `<LEGACY_RULES_DIR>` | Existing skill and rule references | Read-only | Legacy Obsidian rules are the stable rollback reference. |
-| Default draft output | `<CODEX_OUTPUT_DIR>` | Default draft, validation, and intermediate output area | Not used in this run | Validation is contained in the rules repository. |
+| Temporary output area | `<CODEX_OUTPUT_DIR>` | Testing, preview, exception reports, process checks, backups, or explicit user-requested temporary outputs | Not used in this run | Validation is contained in the rules repository. |
 | Historical vault output | `<KNOWLEDGE_BASE_DIR>/_Codex_Output` | Historical compatibility output area | Not used in this run | Not a default output target. |
 | Active work | `<ACTIVE_WORK_DIR>` | Project materials and business context | Read-only orientation only | No deep read performed. |
 | Knowledge and proposal archive | `<SOURCE_ARCHIVE>` | Source materials, finalized original deliverables, knowledge/proposal archive | Read-only orientation only | Formal archive actions require user confirmation. |
