@@ -31,13 +31,13 @@ AI 智能体规则与提示词仓库。
 ## 核心能力
 
 - 只读扫描资料目录并生成文件清单。
-- 按项目资料、产品能力、行业场景、商务资料、汇报材料、可复用知识分类。
-- 生成项目笔记、资料笔记、知识卡片、资料索引和 MOC。
+- 按项目、研究、文献、技术、产品、政策标准、商务、方法、混合资料等类型识别资料。
+- 生成资料索引、多类型主题笔记、分型知识卡片和 MOC。
 - 建立双链、标签和上层 MOC 挂接建议。
 - 辅助生成 Word、PPT、Markdown、汇报材料和方案文档结构。
 - 对图片、架构图、流程图、封面图、场景图等内容，只保留占位符、说明和 AI 图片生成提示词。
 - 通过 draft 分支、PR 和人工确认维护脱敏规则副本。
-- 默认草稿和验证输出进入 `<CODEX_OUTPUT_DIR>`，`<KNOWLEDGE_BASE_DIR>/_Codex_Output` 仅作为历史兼容区。
+- `<CODEX_OUTPUT_DIR>` 仅用于测试、预览、异常报告、过程检查、备份或用户明确要求的临时输出；`<KNOWLEDGE_BASE_DIR>/_Codex_Output` 仅作为历史兼容区。
 
 ## 仓库结构
 
@@ -59,7 +59,7 @@ AI 智能体规则与提示词仓库。
 
 ## 可用 Skill
 
-- [Knowledge Management Skill v1](skills/knowledge-management/SKILL.md)：用于从工作区级视角进行只读目录分析、资料分类、Obsidian / Markdown 知识化规划、资料索引、项目笔记、MOC、知识卡片、双链、标签和迁移建议。v1 测试输出不进入正式 KnowledgeBase。
+- [Knowledge Management Skill](skills/knowledge-management/SKILL.md)：用于从工作区级视角进行只读目录分析、资料类型识别、Obsidian / Markdown formal knowledge filing、资料索引、多类型主题笔记、MOC、分型知识卡片、双链、标签、合并去重和统一质检。测试、预览、异常报告、过程检查、备份或用户明确要求的临时输出不进入正式 KnowledgeBase。
 - [Obsidian 项目型知识库整理 Skill](skills/obsidian-project-knowledge-skill/SKILL.md)：用于让 AI 助手、Codex、ChatGPT Project 或类似智能体读取工作流说明，把项目文件、方案材料、商务资料、行业内容和汇报材料整理成可维护的 Obsidian 知识库。
 
 配套示例与模板：
@@ -90,8 +90,8 @@ AI 智能体规则与提示词仓库。
 3. 复制本仓库中的规则模板。
 4. 按本地目录结构配置路径。
 5. 对待整理资料先执行只读扫描。
-6. 人工确认分类、入库和迁移建议。
-7. 再执行知识卡片、项目笔记、资料索引或 MOC 生成。
+6. 人工确认资料类型、入库策略、合并去重和挂接建议。
+7. 再执行资料索引、主题笔记、知识卡片或 MOC 生成。
 
 ## 使用前提
 

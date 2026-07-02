@@ -6,7 +6,7 @@
 | 原始文件路径 | 原始文件名 | GitHub 目标路径 | 目标文件名 | 中文说明 | 处理方式 | 备注 |
 |---|---|---|---|---|---|---|
 | `<CODEX_CONTROL_DIR>/CODEX.md` | CODEX.md | `<GITHUB_WORKSPACE>/ai-agent-rules/core` | codex-workspace-rules.md | Codex 工作区执行总规则 | 脱敏后复制 | 抽象本机路径、日志路径和输出目录 |
-| `<CODEX_CONTROL_DIR>/runtime-rules.md` | runtime-rules.md | `<GITHUB_WORKSPACE>/ai-agent-rules/core` | codex-workspace-rules.md | Codex runtime 执行边界 | 脱敏合并 | 默认草稿区、blocker、GitHub 同步和脚本边界使用占位符 |
+| `<CODEX_CONTROL_DIR>/runtime-rules.md` | runtime-rules.md | `<GITHUB_WORKSPACE>/ai-agent-rules/core` | codex-workspace-rules.md | Codex runtime 执行边界 | 脱敏合并 | formal filing、临时输出边界、blocker、GitHub 同步和脚本边界使用占位符 |
 | `<USER_CODEX_CONFIG_DIR>/AGENTS.md` | AGENTS.md | `<GITHUB_WORKSPACE>/ai-agent-rules/core` | user-working-principles-template.md | 用户工作原则模板 | 生成通用模板版 | 保留协作原则，转为通用模板 |
 | `<OBSIDIAN_AGENT_RULES_DIR>/任务目标驱动模式验收清单.md` | 任务目标驱动模式验收清单.md | `<GITHUB_WORKSPACE>/ai-agent-rules/core` | task-goal-driven-review-checklist.md | 任务目标驱动验收清单 | 脱敏后复制 | 抽象本机路径和知识库边界 |
 | `<CODEX_CONTROL_DIR>/obsidian-write-rules.md` | obsidian-write-rules.md | `<GITHUB_WORKSPACE>/ai-agent-rules/agents/obsidian-knowledge-agent/rules` | obsidian-write-rules.md | Obsidian 写入规则 | 脱敏后复制 | 路径参数化 |
@@ -25,7 +25,7 @@
 ## 同步边界
 
 - GitHub 目标文件只能保留脱敏规则、模板、说明和占位示例。
-- 默认草稿和验证输出目录为 `<CODEX_OUTPUT_DIR>`。
+- `<CODEX_OUTPUT_DIR>` 仅用于测试、预览、异常报告、过程检查、备份或用户明确要求的临时输出。
 - `<KNOWLEDGE_BASE_DIR>/_Codex_Output` 仅作为历史兼容区，不作为默认输出区。
 - `<AI_OUTPUT_DIR>` 仅作为临时交付或中转区，不作为长期归档目录。
 - commit、push、PR、merge 必须另行确认；Codex 不得自行 merge，不得 force push。
