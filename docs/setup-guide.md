@@ -138,6 +138,8 @@ AI 图片生成提示词：
 
 `skills/knowledge-management/SKILL.md` 是工作区级知识管理入口，用于在进入具体 Obsidian / Markdown 知识化动作前，先判断工作区结构、资料来源、输出边界和安全风险。
 
+默认 Skill 安装目录为 `skills/knowledge-management/`。除非需要兼容早期版本，否则不建议安装 `skills/obsidian-project-knowledge-skill/`。
+
 推荐路径变量：
 
 | 变量 | 含义 |

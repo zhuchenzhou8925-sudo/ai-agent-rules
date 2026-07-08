@@ -10,6 +10,8 @@
 
 - `skills/knowledge-management/SKILL.md`
 
+新用户请优先安装 `skills/knowledge-management/`。`skills/obsidian-project-knowledge-skill/` 为历史版或兼容示例，不作为默认安装入口。
+
 该入口先做工作区级只读分析，再决定是否进入 Obsidian / Markdown 正式知识化入档流程。当前版本支持资料类型识别、资料索引、多类型主题笔记、MOC、分型知识卡片、双链、标签、合并去重、版本判断、质量检查和上层 MOC 挂接建议。
 
 测试或验证新版 Skill 时，输出材料应放在规则仓库的测试或报告目录，不写入正式 KnowledgeBase，也不写入 KnowledgeBase 内的 `_Codex_Output`。用户授权资料正式处理时，默认判断如何进行 formal knowledge filing，而不是先生成草稿再迁移。

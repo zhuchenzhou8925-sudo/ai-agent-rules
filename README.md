@@ -57,12 +57,21 @@ AI 智能体规则与提示词仓库。
 | `examples/` | 脱敏输入输出样例占位 |
 | `changelog.md` | 仓库变更记录 |
 
-## 可用 Skill
+## 推荐 Skill
 
-- [Knowledge Management Skill](skills/knowledge-management/SKILL.md)：用于从工作区级视角进行只读目录分析、资料类型识别、Obsidian / Markdown formal knowledge filing、资料索引、多类型主题笔记、MOC、分型知识卡片、双链、标签、合并去重和统一质检。测试、预览、异常报告、过程检查、备份或用户明确要求的临时输出不进入正式 KnowledgeBase。
-- [Obsidian 项目型知识库整理 Skill](skills/obsidian-project-knowledge-skill/SKILL.md)：用于让 AI 助手、Codex、ChatGPT Project 或类似智能体读取工作流说明，把项目文件、方案材料、商务资料、行业内容和汇报材料整理成可维护的 Obsidian 知识库。
+当前唯一推荐使用的正式 Skill：
+
+- [Knowledge Management Skill](skills/knowledge-management/SKILL.md)：位于 `skills/knowledge-management/`，用于从工作区级视角进行只读目录分析、资料类型识别、Obsidian / Markdown formal knowledge filing、资料索引、多类型主题笔记、MOC、分型知识卡片、双链、标签、合并去重和统一质检。测试、预览、异常报告、过程检查、备份或用户明确要求的临时输出不进入正式 KnowledgeBase。
+
+外部使用时，请优先复制 `skills/knowledge-management/` 目录，不建议同时复制多个相近 Skill 目录，以避免本地 Agent 触发混淆。
+
+## 历史 Skill / 兼容示例
+
+- [Obsidian 项目型知识库整理 Skill](skills/obsidian-project-knowledge-skill/SKILL.md)：位于 `skills/obsidian-project-knowledge-skill/`，该目录为早期版本或兼容示例，不建议新用户优先使用。除非明确需要旧版结构，否则请使用 `skills/knowledge-management/`。
 
 配套示例与模板：
+
+其中 `skills/obsidian-project-knowledge-skill/` 下的示例与模板属于旧版示例或兼容资料，可作为参考材料保留，不作为默认安装入口。
 
 - [工作区目录职责图模板](skills/knowledge-management/templates/workspace-directory-map-template.md)
 - [旧版能力覆盖矩阵模板](skills/knowledge-management/templates/legacy-coverage-matrix-template.md)
