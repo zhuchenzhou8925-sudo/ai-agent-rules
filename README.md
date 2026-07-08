@@ -57,15 +57,23 @@ AI 智能体规则与提示词仓库。
 | `examples/` | 脱敏输入输出样例占位 |
 | `changelog.md` | 仓库变更记录 |
 
-## 推荐 Skill
+## Skill 目录说明
 
-当前唯一推荐使用的正式 Skill：
+### 推荐主 Skill
 
 - [Knowledge Management Skill](skills/knowledge-management/SKILL.md)：位于 `skills/knowledge-management/`，用于从工作区级视角进行只读目录分析、资料类型识别、Obsidian / Markdown formal knowledge filing、资料索引、多类型主题笔记、MOC、分型知识卡片、双链、标签、合并去重和统一质检。测试、预览、异常报告、过程检查、备份或用户明确要求的临时输出不进入正式 KnowledgeBase。
 
-外部使用时，请优先复制 `skills/knowledge-management/` 目录，不建议同时复制多个相近 Skill 目录，以避免本地 Agent 触发混淆。
+外部或团队使用时，请优先复制 `skills/knowledge-management/` 目录，不建议同时复制多个相近 Skill 目录，以避免本地 Agent 触发混淆。
 
-## 历史 Skill / 兼容示例
+### 专项业务 Skill
+
+- [Bidding Document Analysis Skill](skills/bidding-document-analysis/SKILL.md)：位于 `skills/bidding-document-analysis/`，用于招标文件、采购文件、评分办法、合同条款、响应要求和投标风险的结构化分析。该 Skill 不生成正式投标文件终稿，不自动报价，不判断中标概率，不出具法律意见；正式商务、报价、投标和合同结论必须人工确认。
+
+### 内部 / 本机使用 Skill
+
+- [AI Workflow Builder Skill](skills/ai-workflow-builder/SKILL.md)：位于 `skills/ai-workflow-builder/`，用于设计、优化、拆分、合并 AI workflow / Codex Skill / Agent 规则，并指导本机开发闭环、权限边界、GitHub draft PR 复核和闭环报告。当前状态为 `internal / local-use ready`，不作为 external release。该 Skill 不自动 push，不自动创建 PR，不自动 merge，不 force push，不自动删除分支，不自动对外发布，所有 GitHub 同步和合并动作都必须另行确认。
+
+### 历史 / 兼容 Skill
 
 - [Obsidian 项目型知识库整理 Skill](skills/obsidian-project-knowledge-skill/SKILL.md)：位于 `skills/obsidian-project-knowledge-skill/`，该目录为早期版本或兼容示例，不建议新用户优先使用。除非明确需要旧版结构，否则请使用 `skills/knowledge-management/`。
 
