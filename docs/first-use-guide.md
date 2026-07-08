@@ -60,6 +60,8 @@ KnowledgeBase/
 skills/knowledge-management/SKILL.md
 ```
 
+第一次使用时，只需要复制或安装 `skills/knowledge-management/`。不要同时安装两个 Obsidian 知识库相关 Skill。
+
 注意：这个 Skill 是给 AI 助手读取的工作流说明，不是可直接运行的终端程序。不要在终端里执行 `run skill` 之类命令。
 
 正确做法是对 AI 助手说：
