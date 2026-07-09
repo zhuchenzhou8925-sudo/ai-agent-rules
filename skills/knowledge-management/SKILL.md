@@ -1,6 +1,6 @@
 ---
 name: knowledge-management
-description: Use when the user wants workspace-level knowledge management for an Obsidian or Markdown knowledge base, including read-only folder analysis, material type recognition, formal knowledge filing, multi-type topic notes, MOCs, typed knowledge cards, backlinks, frontmatter links, quality checks, and safe separation between source archives, temporary outputs, and formal knowledge outputs.
+description: Use when the user's primary goal is workspace-level knowledge management for an Obsidian or Markdown knowledge base, including material archiving, formal knowledge filing, resource indexes, topic notes, MOCs, typed knowledge cards, backlinks, tags, frontmatter links, quality checks, and safe separation between source archives, temporary outputs, and formal knowledge outputs. Do not use it as the primary skill for formal bidding analysis or one-time document/PPT drafting unless the user explicitly wants knowledge-base filing.
 ---
 
 # Knowledge Management Skill
@@ -9,15 +9,35 @@ description: Use when the user wants workspace-level knowledge management for an
 
 This skill guides Codex through local Obsidian / Markdown knowledge-base work for the user workspace.
 
+Use it when the user's goal is knowledge-base sedimentation, material archiving, Obsidian / Markdown knowledge organization, resource indexes, topic notes, MOCs, or knowledge cards.
+
 Use it for:
 
-- read-only analysis of a user's workspace structure;
+- read-only analysis of a user's workspace structure when the output supports knowledge-base organization;
 - project files, proposal materials, feasibility studies, research reports, literature, technical documents, product materials, policy standards, business documents, training or methodology materials, and reusable templates;
 - recognizing material types before filing and choosing project, research, literature, technical, product, policy-standard, business, method, or future extension topic notes;
 - organizing materials into resource indexes, multi-type topic notes, MOCs, typed knowledge cards, backlinks, frontmatter links, tags, formal filing locations, quality checks, and MOC attachment suggestions;
 - keeping source archives, temporary outputs, and formal knowledge outputs separate.
 
 This skill is a reusable runtime rule template. It is not an Obsidian plugin and does not directly run as a terminal command.
+
+## Trigger Boundaries
+
+Prioritize this skill only when the user asks to:
+
+- file materials into an Obsidian / Markdown knowledge base;
+- organize, classify, or archive materials for long-term knowledge reuse;
+- create or update resource indexes, topic notes, MOCs, knowledge cards, backlinks, tags, or frontmatter links;
+- review KnowledgeBase structure, duplicate topics, missing links, MOC coverage, or formal filing quality;
+- convert analyzed materials into reusable knowledge artifacts after the source analysis is complete.
+
+Do not prioritize this skill when:
+
+- the primary goal is formal tender, bidding, procurement, scoring, response, or contract-risk analysis; use `bidding-document-analysis` first;
+- the primary goal is a one-time Word, PPT, PDF, Excel, report, proposal, or presentation deliverable; use the relevant document-output workflow unless the user explicitly asks to file the result into the knowledge base;
+- the primary goal is quotation calculation, legal advice, final bid production, external submission, or GitHub publishing.
+
+For boundary cases, clarify the main goal first. If business or bidding materials need both analysis and knowledge filing, complete the domain analysis first, then use this skill to preserve source traceability, reusable judgments, topic notes, cards, MOCs, backlinks, and tags.
 
 ## Workspace Boundary
 
@@ -35,7 +55,12 @@ Use these placeholder paths when the user has authorized the relevant scope. Rep
 | `<SOURCE_ARCHIVE>` | Source archive and finalized original deliverable archive. |
 | `<RULES_REPO>` | GitHub sanitized rules repository. Do not modify during local Skill sync or ingestion tasks unless separately confirmed. |
 
-`<KNOWLEDGE_BASE_DIR>/_Codex_Output` is historical compatibility only. Do not use it as the default output area.
+## Legacy Compatibility
+
+- `<KNOWLEDGE_BASE_DIR>/_Codex_Output` is historical compatibility only. Do not use it as the default output area.
+- References to the legacy Obsidian workflow mean the local rule set under `<OBSIDIAN_AGENT_RULES_DIR>`, not a permission to restore old storage behavior.
+- Keep local runtime rules and GitHub-safe sanitized rules separate. Do not copy placeholders or public-facing simplifications back into local runtime rules.
+- When an old path or old filing habit conflicts with the current workspace boundary, follow the current boundary and report the compatibility issue.
 
 ## Core Safety Rules
 
@@ -62,10 +87,10 @@ Use these placeholder paths when the user has authorized the relevant scope. Rep
 First identify the user's actual goal, then choose one route:
 
 1. **File organization**: scan folders, inventory files, classify, and propose actions.
-2. **File analysis**: summarize, compare versions, extract reusable points, and list gaps.
+2. **File analysis for knowledge reuse**: summarize, compare versions, extract reusable points, and list gaps when the result will support knowledge filing.
 3. **Knowledge-base filing**: prepare and formally file resource indexes, multi-type topic notes, MOCs, typed cards, links, and tags after user authorization.
-4. **Document generation support**: prepare Markdown, Word, PPT, report, or proposal structures from validated materials.
-5. **Business analysis support**: analyze contracts, quotations, bidding materials, and commercial boundaries after authorization.
+4. **Document generation support**: prepare Markdown, Word, PPT, report, or proposal structures only when the document is part of knowledge-base sedimentation or filing.
+5. **Business analysis support for filing**: extract reusable commercial boundaries and knowledge points after the proper domain analysis; use `bidding-document-analysis` first for formal bidding analysis.
 6. **Local knowledge-base governance**: review structure, missing links, duplicate topics, and MOC coverage.
 7. **Automation support**: use existing tools, one-off commands, or inline commands first; create persistent scripts only when repetitive, stable, and explicitly authorized.
 
@@ -112,11 +137,8 @@ Before formal knowledge filing, automatically check:
 - whether knowledge cards are needed and which card types apply;
 - whether the material is duplicate or should merge into an existing note/card;
 - whether a same-topic topic note, project note, or resource note already exists;
-- whether a related MOC already exists;
-- whether a new MOC is needed;
-- whether a resource index is needed;
-- which topic note type or resource index is needed;
-- whether knowledge cards are needed;
+- whether a related MOC already exists, a new MOC is needed, or an upper-level MOC should be updated;
+- whether a resource index, topic note, knowledge card set, or combination is needed;
 - whether backlinks and frontmatter `links` need updates;
 - whether the formal output should merge, de-duplicate, link to existing knowledge, or attach to an upper-level MOC;
 - which KnowledgeBase area is most likely correct. If the user has not named an area, infer it and explain the reason instead of requiring the user to classify it first.
