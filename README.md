@@ -68,6 +68,7 @@ AI 智能体规则与提示词仓库。
 ### 专项业务 Skill
 
 - [Bidding Document Analysis Skill](skills/bidding-document-analysis/SKILL.md)：位于 `skills/bidding-document-analysis/`，用于招标文件、采购文件、评分办法、合同条款、响应要求和投标风险的结构化分析。该 Skill 不生成正式投标文件终稿，不自动报价，不判断中标概率，不出具法律意见；正式商务、报价、投标和合同结论必须人工确认。
+- [Bidding Document Checklist Skill](skills/bidding-document-checklist/SKILL.md)：位于 `skills/bidding-document-checklist/`，用于把招标要求转化为可执行、可追溯的投标编制 Checklist、评分覆盖清单、致命风险清单和终审清单。该 Skill 不自动报价、不编造投标材料、不替代人工签章、递交或最终合规复核。
 
 ### 内部 / 本机使用 Skill
 

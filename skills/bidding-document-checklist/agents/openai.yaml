@@ -1,0 +1,4 @@
+interface:
+  display_name: "投标文件检查清单"
+  short_description: "将招标要求转化为可执行、可追溯的投标编制与终审清单"
+  default_prompt: "使用 $bidding-document-checklist 从招标文件生成可执行的投标编制与终审检查清单。"
